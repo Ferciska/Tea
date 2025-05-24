@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tea Cult</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --accent: #ff005c;
+      --text: #ffffff;
+      --secondary: #444;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Orbitron', sans-serif;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: radial-gradient(circle at center, #2c003e, #0a0a0a);
+      animation: pulse 10s infinite;
+    }
+    header h1 {
+      font-size: 3rem;
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+    }
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+    @keyframes pulse {
+      0%, 100% { background-color: #0a0a0a; }
+      50% { background-color: #1a001e; }
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .member {
+      background: var(--secondary);
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .member:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px var(--accent);
+    }
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+    }
+    .gallery img {
+      height: 200px;
+      border-radius: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: #222;
+      color: var(--text);
+    }
+    button {
+      background: var(--accent);
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tea Cult</h1>
+    <p>Войди в культ. Попробуй настоящий чайный путь.</p>
+  </header>
+
+  <section id="team">
+    <h2>Главные лица</h2>
+    <div class="team">
+      <div class="member">
+        <h3>Axel60958</h3>
+        <p>Технический администратор и гений в сфере техники.</p>
+      </div>
+      <div class="member">
+        <h3>Vadim63677</h3>
+        <p><strong>[С.т. Адм.]</strong><br>Я старший Администратор, Моя задача следить за порядком и за субординацией!</p>
+      </div>
+      <div class="member">
+        <h3>Manka235</h3>
+        <p>Чайная наркоманка, хохотушка, ответственная.<br><strong>Мл. админ</strong> (меняю ВЛД, когда он занят).</p>
+      </div>
+      <div class="member">
+        <h3>BoomBox23160</h3>
+        <p><strong>Инфо-админ</strong><br>Слежу за инфо-каналом, оформлением и внешним видом всех чатов Хауса, отвечаю за передачу информации среди участников.</p>
+      </div>
+      <div class="member">
+        <h3>CooingBug417203</h3>
+        <p>Концептуальный основатель хауса и культа, направляющий команду и задающий атмосферу единства и стиля.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Моменты</h2>
+    <div class="gallery">
+      <img src="img1.jpeg" alt="Классный момент 1">
+      <img src="img2.jpeg" alt="Классный момент 2">
+      <img src="img3.jpeg" alt="Классный момент 3">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Оставить след</h2>
+    <form>
+      <input type="text" placeholder="Имя или прозвище (необязательно)">
+      <textarea rows="5" placeholder="Ваше сообщение в эфир..."></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+  </section>
+</body>
+</html>
