@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tea Cult</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,17 +95,6 @@
       cursor: pointer;
       font-weight: bold;
     }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      section {
-        padding: 2rem 1rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -123,39 +112,55 @@
       </div>
       <div class="member">
         <h3>Vadim63677</h3>
-        <p><strong>[С.т. Адм.]</strong><br>Я старший Администратор, Моя задача следить за порядком и за субординацией!</p>
+        <p>С.т. Адм. Я старший Администратор, Моя задача следить за порядком и за субординацией!</p>
       </div>
       <div class="member">
         <h3>Manka235</h3>
-        <p>Чайная наркоманка, хохотушка, ответственная.<br><strong>Мл. админ</strong> (меняю ВЛД, когда он занят).</p>
+        <p>Чайная наркоманка, хохотушка, ответственная. Заменяет владельца, когда тот занят.</p>
       </div>
       <div class="member">
         <h3>BoomBox23160</h3>
-        <p><strong>Инфо-админ</strong><br>Слежу за инфо-каналом, оформлением и внешним видом всех чатов Хауса, отвечаю за передачу информации среди участников.</p>
+        <p>Я инфо админ. Слежу за инфо-каналом, оформлением и внешним видом всех чатов Хауса, отвечаю за передачу информации среди участников.</p>
       </div>
-      <div class="member">
-        <h3>CooingBug417203</h3>
-        <p>Концептуальный основатель хауса и культа, направляющий команду и задающий атмосферу единства и стиля.</p>
-      </div>
+      <div class="member"><h3>Скоро здесь...</h3><p>Пока в разработке.</p></div>
+      <div class="member"><h3>Скоро здесь...</h3><p>Пока в разработке.</p></div>
     </div>
   </section>
 
   <section id="gallery">
     <h2>Моменты</h2>
     <div class="gallery">
-      <img src="img1.jpeg" alt="Классный момент 1">
-      <img src="img2.jpeg" alt="Классный момент 2">
-      <img src="img3.jpeg" alt="Классный момент 3">
+      <img src="img1.jpg" alt="moment1">
+      <img src="img2.jpg" alt="moment2">
+      <img src="img3.jpg" alt="moment3">
     </div>
   </section>
 
   <section id="contact">
     <h2>Оставить след</h2>
-    <form>
-      <input type="text" placeholder="Имя или прозвище (необязательно)">
-      <textarea rows="5" placeholder="Ваше сообщение в эфир..."></textarea>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Имя или прозвище (необязательно)">
+      <textarea name="message" rows="5" placeholder="Ваше сообщение в эфир..." required></textarea>
       <button type="submit">Отправить</button>
     </form>
   </section>
+
+  <script>
+    const BOT_TOKEN = "8164620617:AAGVe1cf3oVMEDIFPn7Pk777MbhMqf0JI_4"; // Заменить на токен бота
+    const CHAT_ID = "6011272640"; // Заменить на chat_id (можно свой)
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = e.target.name.value || "Аноним";
+      const msg = e.target.message.value;
+      const text = `📩 Новое сообщение:\n👤 ${name}\n💬 ${msg}`;
+
+      fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`)
+        .then(() => alert("✅ Сообщение отправлено!"))
+        .catch(() => alert("❌ Ошибка при отправке!"));
+
+      e.target.reset();
+    });
+  </script>
 </body>
 </html>
